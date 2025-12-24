@@ -1,5 +1,9 @@
 @import "tailwindcss";
+
+
+/* inter font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @theme {
   --font-inter: "Inter", system-ui, sans-serif;
 }
@@ -8,6 +12,7 @@
   font-family: var(--font-inter);
 }
 
+/* satoshi font */
 @font-face {
   font-family: "Satoshi";
   src: url("./fonts/Satoshi-Regular.otf") format("opentype");
@@ -16,11 +21,15 @@
   font-display: swap;
 }
 
-
 @theme {
   --font-satoshi: "Satoshi", system-ui, sans-serif;
 }
 
+@utility font-satoshi {
+  font-family: var(--font-satoshi);
+}
+
+/* satoshi bold font */
 @font-face {
   font-family: "Satoshi-Bold";
   src: url("./fonts/Satoshi-Bold.otf") format("opentype");
@@ -28,7 +37,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 @theme {
   --font-satoshib: "Satoshi-Bold", system-ui, sans-serif;
@@ -38,9 +46,6 @@
   font-family: var(--font-satoshib);
 }
 
-@utility font-satoshi {
-  font-family: var(--font-satoshi);
-}
 
 @layer base {
   * {
