@@ -20,7 +20,7 @@ const variantStyles = {
 }
 
 const sizeStyles = {
-    "sm": " m-2  h-[35px] p-2 pl-2.5 pr-3 text-sm tracking-wide rounded-[8px] font-[400]",
+    "sm": " m-2  h-[40px] p-4 text-sm tracking-tight rounded-[8px] font-[3]",
     "md": " m-2 h-[40px] p-2.5 pl-3.5 pr-3.5 rounded-[9px] font-[400]",
     "lg": "py-4 px-6"
 }

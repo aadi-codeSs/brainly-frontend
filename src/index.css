@@ -46,7 +46,7 @@
   font-family: var(--font-satoshib);
 }
 
-
+/* basic-styles for smooth rendering */
 @layer base {
   * {
     -webkit-font-smoothing: antialiased;
@@ -57,4 +57,27 @@
     shape-rendering: geometricPrecision;
     text-rendering: optimizeLegibility;
   }
+}
+
+/* satoshi light */
+@font-face {
+  font-family: "Satoshi-Light";
+  src: url("./fonts/Satoshi-Light.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-satoshil: "Satoshi-Light", system-ui, sans-serif;
+}
+
+@utility font-satoshil {
+  font-family: var(--font-satoshil);
+}
+
+@theme{
+  --color-primary: #5046e5;
+  --color-secondary: #e1e7ff;
+  --color-slatish: #edf2f0;
 }
