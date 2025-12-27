@@ -12,17 +12,19 @@ import { Card } from './components/Card'
 import { SideBar } from './components/SideBar'
 import { TypeOfContent } from './icons/TypeOfContentLink'
 import { CreateContentModal } from './components/CreateContentModal'
+import { useState } from 'react'
 
 
 function App() {
 
+  const [modalOpen, setModalOpen] = useState(true)
 
   return (
     <div className='min-h-screen flex flex-col'>
       <div className='flex items-center'>    
         <Logo logoIcon={<BrainIcon/>} logoName='Second Brain' size='sm'></Logo>
         <div className='flex ml-[130vh]'>
-          <Button startIcon={<PlusIcon size='base'/>} variant="primary" text="Add Content" size="sm"></Button>
+          <Button startIcon={<PlusIcon size='base'/>} function={()=>{setModalOpen(true)}} variant="primary" text="Add Content" size="sm"></Button>
           <Button startIcon={<ShareIcon size='base'/>} variant="secondary" text="Share Brain" size="sm"></Button>
         </div>
       </div>
@@ -65,7 +67,9 @@ function App() {
         description=''
       />
      </div>
-      {/* <CreateContentModal open={true}/> */}
+      <CreateContentModal open={modalOpen} onClose={() => {
+        setModalOpen(false);
+      }}/>
       
     
         {/* <SideBar></SideBar> */}

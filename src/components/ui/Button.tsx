@@ -11,7 +11,7 @@ interface ButtonProps {
     text: string;
     startIcon?: ReactElement;
     endIcon?: ReactElement;
-    onClick: () => void;
+    function: ()=>{}
 }
 
 const variantStyles = {
@@ -20,7 +20,7 @@ const variantStyles = {
 }
 
 const sizeStyles = {
-    "sm": " m-2  h-[40px] p-4 text-sm tracking-tight rounded-[8px] font-[3]",
+    "sm": " m-2  h-[38px] p-4 text-sm tracking-tight rounded-[8px] font-[3]",
     "md": " m-2 h-[40px] p-2.5 pl-3.5 pr-3.5 rounded-[9px] font-[400]",
     "lg": "py-4 px-6"
 }
@@ -29,7 +29,7 @@ const deafultStyles = "flex items-center font-satoshi leading-none"
 
 export const Button = (props: ButtonProps) => {
 
-    return <button className={`${variantStyles[props.variant]} ${deafultStyles} ${sizeStyles[props.size]}`}>
+    return <button onClick={props.function} className={`${variantStyles[props.variant]} ${deafultStyles} ${sizeStyles[props.size]}`}>
       {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null}  {props.text}  {props.endIcon}
     </button>
 

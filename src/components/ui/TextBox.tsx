@@ -1,14 +1,15 @@
 
 interface TextHolder{
     placeholder: string,
+    styles: string
 }
 
 export const TextBox = (props: TextHolder) => {
     return <>
 <input
   type="text"
-  className="
-    flex h-10 w-full rounded-md
+  className={`
+    "flex h-10 w-full rounded-md
     bg-background
     border-2 border-slatish
     px-3 py-2 text-sm
@@ -22,8 +23,8 @@ export const TextBox = (props: TextHolder) => {
     focus:ring-offset-0
 
     disabled:cursor-not-allowed
-    disabled:opacity-50
-  "
+    disabled:opacity-50" ${props.styles}
+  `}
   placeholder={props.placeholder}
 />
     </>
