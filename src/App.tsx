@@ -19,19 +19,23 @@ function App() {
 
   return (
     <div className='min-h-screen flex flex-col'>
-      {/* <Button startIcon={<PlusIcon size='base'/>} variant="primary" text="Add Content" size="sm"></Button>
-      <Button startIcon={<ShareIcon size='base'/>} variant="secondary" text="Share Brain" size="sm"></Button>
-      <Logo logoIcon={<BrainIcon/>} logoName='Second Brain' size='sm'></Logo>
-       */}
-      <CreateContentModal open={true}/>
-      <Card
+      <div className='flex items-center'>    
+        <Logo logoIcon={<BrainIcon/>} logoName='Second Brain' size='sm'></Logo>
+        <div className='flex ml-[130vh]'>
+          <Button startIcon={<PlusIcon size='base'/>} variant="primary" text="Add Content" size="sm"></Button>
+          <Button startIcon={<ShareIcon size='base'/>} variant="secondary" text="Share Brain" size="sm"></Button>
+        </div>
+      </div>
+     
+     <div className='flex'>
+        <Card
         type="yt"
         typeOfIcon={<DocTypeIcon type='doc' />}
         headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
         tag1='#productivity' tag2='#ideas' 
         date='12/12/2025' 
         link="https://youtu.be/V7-vRoLgccY"
-        description='friends new episode'
+        description=''
       />
        <Card
         type="tweet"
@@ -40,8 +44,29 @@ function App() {
         tag1='#productivity' tag2='#ideas' 
         date='12/12/2025' 
         link="https://x.com/diwanshu_28/status/2004433554508599706"
-        description='friends new episode'
+        description=''
       />
+      <Card
+        type="yt"
+        typeOfIcon={<DocTypeIcon type='doc' />}
+        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
+        tag1='#productivity' tag2='#ideas' 
+        date='12/12/2025' 
+        link="https://youtu.be/Ecs-foVS74Q"
+        description=''
+      />
+      <Card
+        type="tweet"
+        typeOfIcon={<DocTypeIcon type='doc' />}
+        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
+        tag1='#productivity' tag2='#ideas' 
+        date='12/12/2025' 
+        link="https://x.com/_kavericodes/status/2004245376615043367"
+        description=''
+      />
+     </div>
+      {/* <CreateContentModal open={true}/> */}
+      
     
         {/* <SideBar></SideBar> */}
     </div>
