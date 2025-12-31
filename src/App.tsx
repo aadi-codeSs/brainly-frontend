@@ -46,15 +46,18 @@ interface Layoutprops{
 const Layout = (props: Layoutprops) => {
   return  <div>
             <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} ></Header>
-          <div className='flex'>
+          <div className='flex ml-0!'>
             <SideBar/>
-          <div className='min-h-[100vh] flex flex-col ml-28 mr-28 mt-4'>
+          <div className='min-h-[100vh] flex flex-col ml-20 mr-20 mt-4'>
     
           <div className='flex-1'>
             <Outlet/>
           </div>
-            <Footer></Footer>
+            
           </div>
+          </div>
+          <div className='ml-20 mr-20 mt-4'>
+            <Footer></Footer>
           </div>
           </div>
 }
