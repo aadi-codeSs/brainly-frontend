@@ -13,69 +13,48 @@ import { SideBar } from './components/SideBar'
 import { TypeOfContent } from './icons/TypeOfContentLink'
 import { CreateContentModal } from './components/CreateContentModal'
 import { useState } from 'react'
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
+import { Landingpage } from './components/pages/LandingPage'
 
 
 function App() {
 
-  const [modalOpen, setModalOpen] = useState(true)
+  const [modalOpen, setModalOpen] = useState(true);
 
   return (
-    <div className='min-h-screen flex flex-col'>
-      <div className='flex items-center'>    
-        <Logo logoIcon={<BrainIcon/>} logoName='Second Brain' size='sm'></Logo>
-        <div className='flex ml-[130vh]'>
-          <Button startIcon={<PlusIcon size='base'/>} function={()=>{setModalOpen(true)}} variant="primary" text="Add Content" size="sm"></Button>
-          <Button startIcon={<ShareIcon size='base'/>} variant="secondary" text="Share Brain" size="sm"></Button>
-        </div>
-      </div>
-     
-     <div className='flex'>
-        <Card
-        type="yt"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://youtu.be/V7-vRoLgccY"
-        description=''
-      />
-       <Card
-        type="tweet"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://x.com/diwanshu_28/status/2004433554508599706"
-        description=''
-      />
-      <Card
-        type="yt"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://youtu.be/Ecs-foVS74Q"
-        description=''
-      />
-      <Card
-        type="tweet"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://x.com/_kavericodes/status/2004245376615043367"
-        description=''
-      />
-     </div>
-      <CreateContentModal open={modalOpen} onClose={() => {
-        setModalOpen(false);
-      }}/>
-      
-    
-        {/* <SideBar></SideBar> */}
-    </div>
 
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout modalOpen={modalOpen} setModalOpen={setModalOpen} />}>
+          <Route index element={<Landingpage modalOpen={modalOpen} setModalOpen={setModalOpen} />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    
   )
 }
 
 export default App
+
+interface Layoutprops{
+  modalOpen: boolean;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Layout = (props: Layoutprops) => {
+  return  <div>
+            <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} ></Header>
+          <div className='flex'>
+            <SideBar/>
+          <div className='min-h-[100vh] flex flex-col ml-28 mr-28 mt-4'>
+    
+          <div className='flex-1'>
+            <Outlet/>
+          </div>
+            <Footer></Footer>
+          </div>
+          </div>
+          </div>
+}

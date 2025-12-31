@@ -7,7 +7,7 @@ interface LogoProps {
 }
 
 const sizeStyles = {
-    "sm":"text-xl font-[400] text-widest m-1",
+    "sm":"text-2xl font-[400] tracking-tighter",
     "md":"",
     "lg":""
 }
@@ -18,6 +18,6 @@ export const Logo = (props: LogoProps) => {
 
     return <div className={`${sizeStyles[props.size]} ${deafultStyles}`}>
         {props.logoIcon ? <div> {props.logoIcon} </div> : null}
-        {props.logoName}
+        <div className="flex">{props.logoName}</div>
     </div>
 }

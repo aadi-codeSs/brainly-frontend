@@ -11,12 +11,13 @@ interface ButtonProps {
     text: string;
     startIcon?: ReactElement;
     endIcon?: ReactElement;
-    function: ()=>{}
+    function: ()=>void
 }
 
 const variantStyles = {
     "primary": "bg-[#5046e5] text-[#f1f1fd]",
     "secondary": "bg-[#e1e7ff] text-[#5248cf] font-[425]"
+    
 }
 
 const sizeStyles = {
@@ -25,7 +26,7 @@ const sizeStyles = {
     "lg": "py-4 px-6"
 }
 
-const deafultStyles = "flex items-center font-satoshi leading-none"
+const deafultStyles = "flex items-center font-satoshi leading-none cursor-pointer"
 
 export const Button = (props: ButtonProps) => {
 

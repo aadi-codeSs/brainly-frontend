@@ -26,9 +26,9 @@ export const DropDownMenu = () => {
             disabled:opacity-50 " 
         `}>
         <option value="">Type</option>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
+        <option value="option1">youtube</option>
+        <option value="option2">tweet</option>
+        <option value="option3">document</option>
       </select>
     </>
 }
