@@ -7,11 +7,13 @@ type Variants = "primary" | "secondary"
 interface ButtonProps {
     variant: Variants;
     size: "sm" | "md" | "lg";
-    height: ""
     text: string;
     startIcon?: ReactElement;
     endIcon?: ReactElement;
-    function: ()=>void
+    /**
+     * Generic click handler: supports sync or async functions and optional event param
+     */
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void | Promise<void>;
 }
 
 const variantStyles = {
@@ -30,7 +32,7 @@ const deafultStyles = "flex items-center font-satoshi leading-none cursor-pointe
 
 export const Button = (props: ButtonProps) => {
 
-    return <button onClick={props.function} className={`${variantStyles[props.variant]} ${deafultStyles} ${sizeStyles[props.size]}`}>
+    return <button onClick={props.onClick} className={`${variantStyles[props.variant]} ${deafultStyles} ${sizeStyles[props.size]}`}>
       {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null}  {props.text}  {props.endIcon}
     </button>
 

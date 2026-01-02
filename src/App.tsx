@@ -17,18 +17,23 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Landingpage } from './components/pages/LandingPage'
+import { Signup } from './components/pages/SignUp'
+import { Signin } from './components/pages/SignIn'
 
 
 function App() {
 
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout modalOpen={modalOpen} setModalOpen={setModalOpen} />}>
+        <Route path='/signup' element={<Signup/>} /> 
+        <Route path='/signin' element={<Signin/>} />
+        <Route path="/dashboard" element={<Layout modalOpen={modalOpen} setModalOpen={setModalOpen} />}>
           <Route index element={<Landingpage modalOpen={modalOpen} setModalOpen={setModalOpen} />} />
+          
         </Route>
       </Routes>
     </BrowserRouter>
@@ -48,7 +53,7 @@ const Layout = (props: Layoutprops) => {
             <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} ></Header>
           <div className='flex ml-0!'>
             <SideBar/>
-          <div className='min-h-[100vh] flex flex-col ml-20 mr-20 mt-4'>
+          <div className='min-h-[100vh] flex flex-col ml-14 mr-14 mt-4'>
     
           <div className='flex-1'>
             <Outlet/>

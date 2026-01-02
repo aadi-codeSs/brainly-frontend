@@ -3,6 +3,7 @@ import { Card } from "../Card";
 import { SideBar } from "../SideBar";
 import { DocTypeIcon } from "../../icons/TypeOfContentIcon";
 import { CreateContentModal } from "../CreateContentModal";
+import { useContent } from "../../hooks/useContent";
 
 interface LandingpageProps {
     modalOpen: boolean;
@@ -10,47 +11,26 @@ interface LandingpageProps {
 }
 
 export const Landingpage = (props: LandingpageProps) =>{
+
+  const contents = useContent();
     return <div className='min-h-screen flex flex-col'>
       
      
-     <div className='flex'>
+     <div className="flex flex-wrap">
+        {contents.map(({type, link, title, description}) => 
         <Card
-        type="yt"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://youtu.be/V7-vRoLgccY"
-        description=''
-      />
-       <Card
-        type="tweet"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://x.com/diwanshu_28/status/2004433554508599706"
-        description=''
-      />
-      <Card
-        type="yt"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://youtu.be/Ecs-foVS74Q"
-        description=''
-      />
-      <Card
-        type="tweet"
-        typeOfIcon={<DocTypeIcon type='doc' />}
-        headerTitle='Lorem ipsum dolor sit amet, consectetuer adip'
-        tag1='#productivity' tag2='#ideas' 
-        date='12/12/2025' 
-        link="https://x.com/_kavericodes/status/2004245376615043367"
-        description=''
-      />
-     </div>
+        type={type}
+        typeOfIcon={<DocTypeIcon type={type}/>}
+        headerTitle={title}
+        tag1="productivity"
+        tag2="ideas"
+        link={link}
+        description={description}
+        />
+      )}
+      </div>
+      
+     
       <CreateContentModal open={props.modalOpen} onClose={() => {
         props.setModalOpen(false);
       }}/>

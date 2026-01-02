@@ -15,7 +15,7 @@ function TypeOfContent(props: TypeOfContentProps){
         // console.log({ videoId, embedUrl });
         if (embedUrl === null ) return;
         return <>
-        <iframe className='w-full rounded-md' src={embedUrl}  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe className='w-full h-full rounded-md' src={embedUrl} frameBorder={"0"} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy={"strict-origin-when-cross-origin"} allowFullScreen></iframe>
         </>
     }
 

@@ -17,13 +17,19 @@ interface CardProps {
 }
 
 
+
+
 export const Card = (props: CardProps) => {
 
-    return <div className="flex flex-col max-w-80 border-[#edf2f0] border-2 m-2 rounded-2xl h-full">
+    return <div className="flex flex-col max-w-80 border-[#edf2f0] border-2 m-2 rounded-2xl min-h-[420px] h-full justify-between overflow-hidden">
         <CardHeader  type={props.type} title={props.headerTitle} ></CardHeader>
-        <div className="p-2 m-2">
-            <TypeOfContent src={props.link} type={props.type}/>
-            {props.description}
+        <div className="p-2 m-2 flex-1 overflow-hidden">
+            <div className="w-full h-44 mb-2 overflow-hidden rounded-md">
+                <TypeOfContent src={props.link} type={props.type}/>
+            </div>
+            <div className="text-sm text-[#333] max-h-16 overflow-hidden">
+               {props.description}
+            </div>
         </div>
         <CardFooter tag1={props.tag1} tag2={props.tag2} date={props.date}></CardFooter>
 

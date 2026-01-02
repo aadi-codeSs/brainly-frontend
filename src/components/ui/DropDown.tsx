@@ -1,34 +1,32 @@
-export const DropDownMenu = () => {
-    return <>
-    
-<select
-        id="dropdown"
-        // value={selectedOption}
-        // onChange={(e) => setSelectedOption(e.target.value)}
-        className={`
-            " flex h-8 w-22 rounded-md
-            bg-background
-            border-2 border-slatish
-            px-3 py-1 text-sm
-            font-satoshi
-            text-grey
+import { forwardRef } from "react";
 
-            placeholder:font-satoshi
-            placeholder: text-sm
-
-            focus:border-slatish
-            focus:outline-none
-            focus:ring-2
-            focus:ring-[#dfe8e4]
-            focus:ring-offset-0
-
-            disabled:cursor-not-allowed
-            disabled:opacity-50 " 
-        `}>
-        <option value="">Type</option>
-        <option value="option1">youtube</option>
-        <option value="option2">tweet</option>
-        <option value="option3">document</option>
-      </select>
-    </>
+interface DropdownOption { value: string; label: string }
+interface DropdownProps {
+  options?: DropdownOption[];
+  styles?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
+
+export const DropDownMenu = forwardRef<HTMLSelectElement, DropdownProps>((props, ref) => {
+  const options = props.options ?? [
+    { value: "", label: "Type" },
+    { value: "yt", label: "youtube" },
+    { value: "tweet", label: "tweet" },
+    { value: "docs", label: "document" },
+  ];
+
+  return (
+    <select
+      ref={ref}
+      id="dropdown"
+      value={props.value}
+      onChange={props.onChange}
+      className={`flex h-8 w-22 rounded-md bg-background border-2 border-slatish px-3 py-1 text-sm font-satoshi text-grey focus:border-slatish focus:outline-none focus:ring-2 focus:ring-[#dfe8e4] focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50 ${props.styles ?? ''}`}
+    >
+      {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+    </select>
+  )
+});
+
+DropDownMenu.displayName = "DropDownMenu";
