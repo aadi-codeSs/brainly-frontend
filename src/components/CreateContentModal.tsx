@@ -31,6 +31,7 @@ export const CreateContentModal = ({open, onClose}) => {
             }
         })
         alert("content added")
+        onClose();
     }
 
     return <>

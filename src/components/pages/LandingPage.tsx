@@ -4,6 +4,7 @@ import { SideBar } from "../SideBar";
 import { DocTypeIcon } from "../../icons/TypeOfContentIcon";
 import { CreateContentModal } from "../CreateContentModal";
 import { useContent } from "../../hooks/useContent";
+import { useEffect } from "react";
 
 interface LandingpageProps {
     modalOpen: boolean;
@@ -12,7 +13,11 @@ interface LandingpageProps {
 
 export const Landingpage = (props: LandingpageProps) =>{
 
-  const contents = useContent();
+  const {contents, refreshAndGet} = useContent();
+
+  useEffect(() => {
+    refreshAndGet();
+  }, [props.modalOpen])
     return <div className='min-h-screen flex flex-col'>
       
      

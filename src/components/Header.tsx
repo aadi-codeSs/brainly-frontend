@@ -4,6 +4,7 @@ import { PlusIcon } from "../icons/PlusIcon"
 import { ShareIcon } from "../icons/ShareIcon"
 import { Logo } from "./ui/Logo"
 import { Button } from "./ui/Button"
+import { shareFn } from "../icons"
 
 interface Headerprops {
   modalOpen: boolean;
@@ -16,7 +17,7 @@ export const Header = (props: Headerprops) => {
         <Logo logoIcon={<BrainIcon/>} logoName='Second Brain' size='sm'></Logo>
         <div className='flex ml-auto'>
           <Button startIcon={<PlusIcon size='base'/>} onClick={()=>{props.setModalOpen(true)}} variant="primary" text="Add Content" size="sm"></Button>
-          <Button startIcon={<ShareIcon size='base'/>} variant="secondary" text="Share Brain" size="sm"></Button>
+          <Button onClick={shareFn} startIcon={<ShareIcon size='base'/>} variant="secondary" text="Share Brain" size="sm"></Button>
         </div>
       </div>
     </div>

@@ -34,3 +34,4 @@ function TypeOfContent(props: TypeOfContentProps){
 }
 
 export {TypeOfContent}
+
