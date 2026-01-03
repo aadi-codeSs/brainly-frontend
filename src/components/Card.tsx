@@ -28,7 +28,7 @@ export const Card = (props: CardProps) => {
                 <TypeOfContent src={props.link} type={props.type}/>
             </div>
             <div className="text-sm text-[#333] max-h-16 overflow-hidden">
-               {props.description}
+               hii {props.description} hii
             </div>
         </div>
         <CardFooter tag1={props.tag1} tag2={props.tag2} date={props.date}></CardFooter>
