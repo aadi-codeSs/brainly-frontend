@@ -13,7 +13,7 @@ export const DropDownMenu = forwardRef<HTMLSelectElement, DropdownProps>((props,
     { value: "", label: "Type" },
     { value: "yt", label: "youtube" },
     { value: "tweet", label: "tweet" },
-    { value: "docs", label: "document" },
+    { value: "doc", label: "document" },
   ];
 
   return (

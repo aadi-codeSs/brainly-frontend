@@ -2,6 +2,7 @@ import type { ReactElement } from "react"
 import { CardFooter } from "./ui/CardFooter"
 import { CardHeader } from "./ui/CardHeader"
 import { TypeOfContent } from "../icons/TypeOfContentLink";
+import { ReadMoreText } from "./ui/ReadMoreText";
 
 
 
@@ -27,8 +28,8 @@ export const Card = (props: CardProps) => {
             <div className="w-full h-44 mb-2 overflow-hidden rounded-md">
                 <TypeOfContent src={props.link} type={props.type}/>
             </div>
-            <div className="text-sm text-[#333] max-h-16 overflow-hidden">
-               hii {props.description} hii
+            <div className="text-sm text-[#333] max-h-42 overflow-hidden">
+               <ReadMoreText text={props.description} limit={50}/>hi
             </div>
         </div>
         <CardFooter tag1={props.tag1} tag2={props.tag2} date={props.date}></CardFooter>
