@@ -15,6 +15,8 @@ interface CardProps {
     date: string;
     link: string;
     description: string;
+    contentId: string;
+    deleteFn: (contentId: string)=>Promise<void>
 }
 
 
@@ -23,7 +25,7 @@ interface CardProps {
 export const Card = (props: CardProps) => {
 
     return <div className="flex flex-col w-70 border-[#edf2f0] border-2 m-2 rounded-2xl min-h-[420px] h-full justify-between overflow-hidden">
-        <CardHeader  type={props.type} title={props.headerTitle} ></CardHeader>
+        <CardHeader  type={props.type} title={props.headerTitle} deleteFn={props.deleteFn} contentId={props.contentId}></CardHeader>
         <div className="p-2 m-2 flex-1 overflow-hidden">
             <div className="w-full h-44 mb-2 overflow-hidden rounded-md">
                 <TypeOfContent src={props.link} type={props.type}/>

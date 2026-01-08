@@ -10,6 +10,8 @@ interface ButtonProps {
     text: string;
     startIcon?: ReactElement;
     endIcon?: ReactElement;
+    /** optional classes applied to the text wrapper */
+    textStyle?: string;
     /**
      * Generic click handler: supports sync or async functions and optional event param
      */
@@ -28,13 +30,24 @@ const sizeStyles = {
     "lg": "py-4 px-6"
 }
 
-const deafultStyles = "flex items-center font-satoshi leading-none cursor-pointer"
+const defaultStyles = "flex items-center font-satoshi leading-none cursor-pointer"
 
 export const Button = (props: ButtonProps) => {
+  const textContainerClass = `flex-1 flex items-center justify-center ${props.textStyle ?? ""}`.trim()
 
-    return <button onClick={props.onClick} className={`${variantStyles[props.variant]} ${deafultStyles} ${sizeStyles[props.size]}`}>
-      {props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null}  {props.text}  {props.endIcon}
+  return (
+    <button onClick={props.onClick} className={`${variantStyles[props.variant]} ${defaultStyles} ${sizeStyles[props.size]}`}>
+      {props.startIcon ? <div className="pr-2 flex items-center">{props.startIcon}</div> : <div className="w-4" />}
+
+      {props.text ? (
+        <div className={textContainerClass}>
+          <span className="text-center">{props.text}</span>
+        </div>
+      ) : null}
+
+      {props.endIcon ? <div className="pl-2 flex items-center">{props.endIcon}</div> : <div className="w-4" />}
     </button>
+  )
 
 }
 

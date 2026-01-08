@@ -5,6 +5,8 @@ import { DocTypeIcon } from "../../icons/TypeOfContentIcon";
 interface cardHeaderProps  {
     type:"yt" | "doc" | "tweet";
     title: String;
+    contentId: string;
+    deleteFn: (contentId:string) => Promise<void>;
     // width: String;
 }
 
@@ -18,7 +20,9 @@ export const CardHeader = (props: cardHeaderProps) => {
         </div>
         <div className="font-satoshi max-w-50 mr-6 text-md leading-5">{props.title}</div>
             <div className="flex flex-row gap-2 text-[#7a7a86]"><ShareIcon size="md"/>
-        <DeleteIcon size="md"/>
+        <div onClick={()=>{props.deleteFn(props.contentId)}}>
+            <DeleteIcon size="md"/>
+        </div>
         </div>
     </div>
 }

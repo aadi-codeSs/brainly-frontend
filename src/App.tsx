@@ -7,6 +7,7 @@ import { Footer } from './components/Footer'
 import { Landingpage } from './components/pages/LandingPage'
 import { Signup } from './components/pages/SignUp'
 import { Signin } from './components/pages/SignIn'
+import { ProtectedRoute } from './components/ProtectedRoute'
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path='/signup' element={<Signup/>} /> 
         <Route path='/signin' element={<Signin/>} />
         <Route path="/dashboard" element={<Layout modalOpen={modalOpen} setModalOpen={setModalOpen} />}>
-          <Route index element={<Landingpage modalOpen={modalOpen} setModalOpen={setModalOpen} />} />
+          <Route index element={<ProtectedRoute children={<Landingpage modalOpen={modalOpen} setModalOpen={setModalOpen} />}/>}/>
           
         </Route>
       </Routes>
