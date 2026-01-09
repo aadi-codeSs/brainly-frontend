@@ -8,6 +8,7 @@ import { Landingpage } from './components/pages/LandingPage'
 import { Signup } from './components/pages/SignUp'
 import { Signin } from './components/pages/SignIn'
 import { ProtectedRoute } from './components/ProtectedRoute'
+import { Ytpage } from './components/pages/YtPage'
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         <Route path='/signin' element={<Signin/>} />
         <Route path="/dashboard" element={<Layout modalOpen={modalOpen} setModalOpen={setModalOpen} />}>
           <Route index element={<ProtectedRoute children={<Landingpage modalOpen={modalOpen} setModalOpen={setModalOpen} />}/>}/>
-          
+          <Route path='/dashboard/yt' element={<Ytpage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
