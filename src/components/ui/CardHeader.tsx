@@ -19,10 +19,11 @@ export const CardHeader = (props: cardHeaderProps) => {
         <DocTypeIcon type={props.type}/>
         </div>
         <div className="font-satoshi max-w-50 mr-6 text-md leading-5">{props.title}</div>
-            <div className="flex flex-row gap-2 text-[#7a7a86]"><ShareIcon size="md"/>
-        <div onClick={()=>{props.deleteFn(props.contentId)}}>
-            <DeleteIcon size="md"/>
-        </div>
+        <div className="flex flex-row gap-2 text-[#7a7a86] ml-20">
+                <ShareIcon size="md"/>
+            <div onClick={()=>{props.deleteFn(props.contentId)}}>
+                <DeleteIcon size="md"/>
+            </div>
         </div>
     </div>
 }

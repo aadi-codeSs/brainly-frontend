@@ -15,7 +15,7 @@ interface ButtonProps {
     /**
      * Generic click handler: supports sync or async functions and optional event param
      */
-    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void | Promise<void>;
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void | Promise<void>  ;
 }
 
 const variantStyles = {
