@@ -27,7 +27,7 @@ const variantStyles = {
 const sizeStyles = {
     "sm": " m-2  h-[38px] p-4 text-sm tracking-tight rounded-[8px] font-[3]",
     "md": " m-2 h-[40px] p-2.5 pl-3.5 pr-3.5 rounded-[9px] font-[400]",
-    "lg": "py-4 px-6"
+    "lg": " py-4 px-6"
 }
 
 const defaultStyles = "flex items-center font-satoshi leading-none cursor-pointer"

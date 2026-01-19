@@ -39,20 +39,28 @@ interface Layoutprops{
 }
 
 const Layout = (props: Layoutprops) => {
-  return  <div>
-            <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} ></Header>
-          <div className='flex ml-0!'>
-            <SideBar/>
-          <div className='min-h-[100vh] flex flex-col ml-14 mr-14 mt-4'>
-    
-          <div className='flex-1'>
+  return (
+    <div className='min-h-screen bg-white'>
+      {/* Fixed Header */}
+      <Header modalOpen={props.modalOpen} setModalOpen={props.setModalOpen} />
+      
+      {/* Fixed Sidebar */}
+      <SideBar/>
+      
+      {/* Scrollable Main Content Area */}
+      <main className='pt-16 pl-56 h-[calc(100vh-4rem)] overflow-y-auto max-md:pl-0'>
+        <div className='flex flex-col min-h-full'>
+          {/* Content Area */}
+          <div className='flex-1 px-14 py-4'>
             <Outlet/>
           </div>
-            
+          
+          {/* Footer inside scrollable area */}
+          <div className='px-20 mt-4'>
+            <Footer/>
           </div>
-          </div>
-          <div className='ml-20 mr-20 mt-4'>
-            <Footer></Footer>
-          </div>
-          </div>
+        </div>
+      </main>
+    </div>
+  )
 }
